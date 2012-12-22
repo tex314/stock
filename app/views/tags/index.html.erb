@@ -1,0 +1,17 @@
+<% content_for :heading do %>
+  <%= link_to 'Reload', tags_path, "data-icon" => "forward" %>
+  <h1>タグ一覧</h1>
+<% end %>
+
+<ul data-role="listview" data-filter="true">
+  <% @tags.each do |tag| %>
+    <li>
+      <%= link_to tag_path(tag.name) do %>
+        <%= tag.name %>
+        <span class="ui-li-count">
+          <%= tag.items.size %>
+        </span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
