@@ -1,0 +1,33 @@
+<% content_for :error do %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_for(@item) do |f| %>
+
+  <fieldset>
+    <div data-role="fieldcontain">
+      <%= f.label :name, "品名" %>
+      <%= f.text_field :name, :placeholder => "トイレットペーパー" %>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <%= f.label :tag_list, "場所(カンマ区切り)" %>
+      <%= f.text_field :tag_list %>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <%= f.label :quantity, "数" %>
+      <%= f.number_field :quantity %>
+    </div>
+
+    <%= f.submit "保存" %>
+  </fieldset>
+<% end %>

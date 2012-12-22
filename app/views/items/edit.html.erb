@@ -1,0 +1,7 @@
+<% content_for :heading do %>
+  <%= link_to '一覧', items_path, "data-icon" => "back" %>
+  <h1><%= @item.name %></h1>
+  <%= link_to 'Delete', @item, :method => "delete", :confirm => "削除してもよろしいですか?", "data-icon" => "delete" %>
+<% end %>
+
+<%= render 'form' %>

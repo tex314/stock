@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Stock</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  <%= csrf_meta_tags %>
+</head> 
+
+<body>
+  <div data-role="page">
+    <div data-role="header">
+      <%= yield :heading %>
+    </div>
+
+    <div id="messages">
+      <div id="alert">
+        <% if flash[:alert] %>
+          <ul>
+            <li><%= flash[:alert] %></li>
+          </ul>
+        <% else %>
+          <%= yield :error %>
+        <% end %>
+      </div>
+      <div id="notice">
+        <% if flash[:notice] %>
+          <ul>
+            <li><%= flash[:notice] %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div data-role="content">
+      <%= yield %>
+    </div>
+
+
+    <div data-role="navbar" data-position="fixed">
+      <ul>
+        <li>
+          <%= link_to "在庫", items_path, "data-icon" => "check" %>
+        </li>
+        <li>
+          <%= link_to "タグ", tags_path, "data-icon" => "check" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+
+
