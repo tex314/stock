@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
-
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -16,10 +16,6 @@ end
 group :test, :development do
   gem 'quiet_assets'
   gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end
 
 gem 'jquery-rails'
