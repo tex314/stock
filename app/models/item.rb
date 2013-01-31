@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   has_many :tags, through: :taggings
   
   def self.tagged_with(name)
-    Tag.find_by_name!(name).items
+    name.present? ? Tag.find_by_name!(name).items : self
   end
 
   def self.tag_counts
