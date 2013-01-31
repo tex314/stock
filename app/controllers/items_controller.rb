@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   def index
-    if params[:tag]
-      @items = Item.tagged_with(params[:tag])
+    @q = Item.search(params[:q])
+    if params[:q]
+      @items = @q.result.tagged_with(params[:tag]).page(params[:page]).per(params[:per])
     else
-      @items = Item.all
+      @items = @q.result.tagged_with(params[:tag]).order("quantity ASC").page(params[:page]).per(params[:per])
     end
   end
 

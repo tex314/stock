@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'pg'
 
 group :assets do
@@ -20,3 +20,5 @@ end
 
 gem 'jquery-rails'
 gem 'jquery_mobile_rails'
+gem 'kaminari'
+gem 'ransack'
