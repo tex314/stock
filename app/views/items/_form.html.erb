@@ -25,7 +25,7 @@
     
     <div data-role="fieldcontain">
       <%= f.label :quantity, "数" %>
-      <%= f.number_field :quantity %>
+      <%= f.range_field :quantity, min: 0, max: 100, "data-highlight" => "true" %>
     </div>
 
     <%= f.submit "保存" %>
