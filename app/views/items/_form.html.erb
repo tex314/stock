@@ -24,10 +24,26 @@
     </div>
     
     <div data-role="fieldcontain">
-      <%= f.label :quantity, "数" %>
-      <%= f.range_field :quantity, min: 0, max: 100, "data-highlight" => "true" %>
+      <%= f.label :quantity, "数", data: {inline: "true" } %>
+      <%= f.number_field :quantity, maxlength: 5, data: { highlight: "true", inline: "true" }, style: "width: 45px; display: inline-block"  %>
+      <%= link_to "Plus", "#",  :id => "quantity_plus", :data => { role: "button", icon: "plus", iconpos: "notext", inline: "true" } %>
+      <%= link_to "Minus", "#",  :id => "quantity_minus", :data => { role: "button", icon: "minus", iconpos: "notext", inline: "true" } %>
     </div>
 
     <%= f.submit "保存" %>
   </fieldset>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $("#quantity_plus").click(function(e) {
+      $("#item_quantity").val(parseInt($("#item_quantity").val()) + 1);
+    });
+    $("#quantity_minus").click(function(e) {
+      count = parseInt($("#item_quantity").val());
+      if (count > 0) {
+        $("#item_quantity").val(count - 1);
+      }
+    });
+  });
+</script>
