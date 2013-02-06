@@ -27,3 +27,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Ignore code kit files
+/app/assets/css/*
