@@ -34,4 +34,6 @@ Stock::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.log", 10, 1.megabytes)
 end
