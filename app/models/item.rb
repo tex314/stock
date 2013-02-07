@@ -2,6 +2,10 @@ class Item < ActiveRecord::Base
   attr_accessible :name, :quantity, :tag_list
   has_many :taggings
   has_many :tags, through: :taggings
+
+  default_value_for :quantity, 1
+
+  validates :name, :presence => true
   
   def self.tagged_with(name)
     name.present? ? Tag.find_by_name!(name).items : self

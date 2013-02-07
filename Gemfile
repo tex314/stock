@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'jquery_mobile_rails'
 gem 'kaminari'
 gem 'ransack'
+gem 'default_value_for'
 
 group :production do
   gem 'newrelic_rpm'
