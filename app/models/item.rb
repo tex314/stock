@@ -6,6 +6,10 @@ class Item < ActiveRecord::Base
   default_value_for :quantity, 1
 
   validates :name, :presence => true
+
+  def none?
+    quantity < 0
+  end
   
   def self.tagged_with(name)
     name.present? ? Tag.find_by_name!(name).items : self
