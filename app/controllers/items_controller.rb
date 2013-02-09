@@ -9,10 +9,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def new
     @item = Item.new
   end
@@ -35,7 +31,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update_attributes(params[:item])
-      redirect_to items_url, notice: 'アイテムを更新しました' 
+      redirect_to items_path, notice: 'アイテムを更新しました'
     else
       render action: "edit" 
     end
