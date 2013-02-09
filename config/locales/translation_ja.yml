@@ -1,0 +1,8 @@
+# https://github.com/amatsuda/i18n_generators
+ja:
+  activerecord:
+    models:
+      item: アイテム
+    attributes:
+      item:
+        name: 品名
