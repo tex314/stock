@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ItemsController < ApplicationController
   def index
     @q = Item.search(params[:q])
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
     @item = Item.new(params[:item])
 
     if @item.save
-      redirect_to items_path, notice: 'Item was successfully created.'
+      redirect_to items_path, notice: 'アイテムを追加しました'
     else
       render action: "new"
     end
@@ -34,7 +35,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update_attributes(params[:item])
-      redirect_to items_url, notice: 'Item was successfully updated.' 
+      redirect_to items_url, notice: 'アイテムを更新しました' 
     else
       render action: "edit" 
     end
