@@ -6,7 +6,7 @@
 
 <ul data-role="listview" data-filter="true">
   <% @items.each do |item| %>
-    <li>
+    <%= content_tag(:li, data: { theme: item.none? ? "e" : "c" }) do %>
       <%= link_to edit_item_path(item) do %>
         <%= item.name %>
         <small>(<%= item.tags.map(&:name).join(', ') %>)</small>
@@ -14,6 +14,6 @@
           <%= item.quantity %>
         </span>
       <% end %>
-    </li>
+    <% end %>
   <% end %>
 </ul>
