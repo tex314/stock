@@ -33,19 +33,3 @@
     <%= f.submit "保存" %>
   </fieldset>
 <% end %>
-
-<script>
-  $(document).ready(function() {
-    $(document).on("click", "#quantity_plus", function(e) {
-      $("#item_quantity").val(parseInt($("#item_quantity").val()) + 1);  
-      return false;
-    });
-    $(document).on("click","#quantity_minus", function(e) {  
-      count = parseInt($("#item_quantity").val());
-      if (count > 0) {
-        $("#item_quantity").val(count - 1);
-      }
-      return false;
-    });
-  });
-</script>
