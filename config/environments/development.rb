@@ -36,4 +36,5 @@ Stock::Application.configure do
   config.assets.debug = true
   
   config.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.log", 10, 1.megabytes)
+  config.action_mailer.default_url_options = {  :host => 'stock.dev' }
 end
