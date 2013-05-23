@@ -30,3 +30,6 @@ pickle-email-*.html
 
 # Ignore code kit files
 /app/assets/css/*
+
+.rvmrc
+.powrc
