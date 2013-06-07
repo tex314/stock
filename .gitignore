@@ -34,3 +34,4 @@ pickle-email-*.html
 .rvmrc
 .powrc
 /config/database.yml
+/.idea
