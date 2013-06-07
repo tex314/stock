@@ -17,6 +17,8 @@ end
 group :test, :development do
   gem 'sqlite3'
   gem 'quiet_assets'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 gem 'jquery-rails'
