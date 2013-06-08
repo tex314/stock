@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class ItemsController < ApplicationController
+  before_filter :authorize
+
   def index
     @q = Item.search(params[:q])
     if params[:q]

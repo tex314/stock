@@ -21,6 +21,8 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
+gem 'simple_form'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'jquery-rails'
 gem 'jquery_mobile_rails'
 gem 'kaminari'
