@@ -4,11 +4,10 @@ class ItemsController < ApplicationController
 
   def index
     @q = Item.search(params[:q])
-    if params[:q]
-      @items = @q.result.tagged_with(params[:tag]).all
-    else
-      @items = @q.result.tagged_with(params[:tag]).order("quantity ASC").all
-    end
+    #    @q.sorts = "quantity asc"
+    @q.sorts = "id desc"
+
+    @items = @q.result.tagged_with(params[:tag]).all
   end
 
   def new
