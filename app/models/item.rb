@@ -1,7 +1,9 @@
 class Item < ActiveRecord::Base
   include Taggable
 
-  attr_accessible :name, :quantity
+  belongs_to :user
+
+  attr_accessible :name, :quantity, :user_id
   validates :name, :presence => true
 
   default_value_for :quantity, 1
