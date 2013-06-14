@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   belongs_to :user
 
   attr_accessible :name, :quantity, :user_id
-  validates :name, :presence => true
+  validates :name, presence: true
 
   default_value_for :quantity, 1
 
