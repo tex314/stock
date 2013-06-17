@@ -8,4 +8,3 @@ before_install:
 before_script:
   - "cp config/database.yml.example config/database.yml"
   - RAILS_ENV=test bundle exec rake db:create db:migrate
-script: true
