@@ -1,14 +1,14 @@
 <h1>Log In</h1>
-<%= form_tag sessions_path do %>
-    <fieldset>
-      <div data-role="fieldcontain">
-        <%= label_tag :email %>
-        <%= text_field_tag :email, params[:email] %>
-      </div>
-      <div data-role="fieldcontain">
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
-      </div>
-      <%= submit_tag "Log In" %>
-    </fieldset>
+<%= form_tag sessions_path, {data: {ajax: false}} do %>
+  <fieldset>
+    <div data-role="fieldcontain">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <div data-role="fieldcontain">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <%= submit_tag "Log In" %>
+  </fieldset>
 <% end %>

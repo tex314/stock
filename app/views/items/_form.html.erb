@@ -15,7 +15,7 @@
   <fieldset>
     <div data-role="fieldcontain">
       <%= f.label :name, "品名" %>
-      <%= f.text_field :name, :placeholder => "トイレットペーパー" %>
+      <%= f.text_field :name, placeholder: "トイレットペーパー" %>
     </div>
     
     <div data-role="fieldcontain">
@@ -26,8 +26,8 @@
     <div data-role="fieldcontain">
       <%= f.label :quantity, "数", data: {inline: "true" } %>
       <%= f.number_field :quantity, maxlength: 5, data: { highlight: "true", inline: "true" }, style: "width: 45px; display: inline-block"  %>
-      <%= link_to "Plus", "#",  :id => "quantity_plus", :data => { role: "button", icon: "plus", iconpos: "notext", inline: "true" } %>
-      <%= link_to "Minus", "#",  :id => "quantity_minus", :data => { role: "button", icon: "minus", iconpos: "notext", inline: "true" } %>
+      <%= link_to "Plus", "#",  id: "quantity_plus", data: { role: "button", icon: "plus", iconpos: "notext", inline: "true" } %>
+      <%= link_to "Minus", "#",  id: "quantity_minus", data: { role: "button", icon: "minus", iconpos: "notext", inline: "true" } %>
     </div>
 
     <%= f.submit "保存" %>
