@@ -3,12 +3,11 @@ class ItemsController < ApplicationController
   before_filter :authorize
 
   def index
-    @q = Item.search(params[:q])
-    if params[:q]
-      @items = @q.result.tagged_with(params[:tag]).all
-    else
-      @items = @q.result.tagged_with(params[:tag]).order("quantity ASC").all
-    end
+    @q = current_user.items.search(params[:q])
+    #    @q.sorts = "quantity asc"
+    @q.sorts = "id desc"
+    @items = @q.result.all
+#    @items = @q.result.tagged_with(params[:tag]).all
   end
 
   def new
@@ -20,7 +19,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(params[:item])
+    @item = current_user.items.build(params[:item])
+##    @item = Item.new(params[:item])
 
     if @item.save
       redirect_to items_path, notice: 'アイテムを追加しました'
@@ -30,19 +30,21 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
+#    @item = Item.find(params[:id])
 
     if @item.update_attributes(params[:item])
       redirect_to items_path, notice: 'アイテムを更新しました'
     else
-      render action: "edit" 
+      render action: "edit"
     end
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
+#    @item = Item.find(params[:id])
     @item.destroy
-    
+
     redirect_to items_url
   end
 end

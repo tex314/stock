@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
 
 	<!--[if lt IE 9]>
@@ -20,8 +20,10 @@
 
     <div data-role="panel" data-position-fixed="true" data-theme="a" id="nav-panel">
       <ul data-role="listview" data-theme="a" class="nav-search">
-        <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
-        <li><%= link_to "Logout", logout_path  %></li>
+        <li data-icon="delete"><a href="#" data-rel="close">メニューを閉じる</a></li>
+        <li><%= link_to "在庫一覧", items_path, {data: {ajax: false}}  %></li>
+        <li><%= link_to "タグ一覧", tags_path, {data: {ajax: false}} %></li>
+        <li><%= link_to "ログアウト", logout_path, {data: {ajax: false}} %></li>
       </ul>
     </div><!-- /panel -->
 
@@ -29,24 +31,7 @@
       <%= yield :heading %>
     </div>
 
-    <div id="messages">
-      <div id="alert">
-        <% if flash[:alert] %>
-          <ul>
-            <li><%= flash[:alert] %></li>
-          </ul>
-        <% else %>
-          <%= yield :error %>
-        <% end %>
-      </div>
-      <div id="notice">
-        <% if flash[:notice] %>
-          <ul>
-            <li><%= flash[:notice] %></li>
-          </ul>
-        <% end %>
-      </div>
-    </div>
+    <%= flash_notifications %>
 
     <div data-role="content">
       <%= yield %>
