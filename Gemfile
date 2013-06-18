@@ -28,4 +28,4 @@ gem 'jquery_mobile_rails'
 gem 'kaminari'
 gem 'ransack'
 gem 'default_value_for'
-
+gem 'strong_parameters'
